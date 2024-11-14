@@ -1,8 +1,7 @@
 package com.FarmCollector.farmAPI.service;
 
-import com.FarmCollector.farmAPI.dto.CropDetailsReportDTO;
-import com.FarmCollector.farmAPI.dto.FarmDetailsReportDTO;
-import com.FarmCollector.farmAPI.repository.HarvestedRepository;
+import com.FarmCollector.farmAPI.dto.CorpReportDTO;
+import com.FarmCollector.farmAPI.dto.FarmReportDTO;
 import com.FarmCollector.farmAPI.repository.PlantedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,20 +10,17 @@ import java.util.List;
 
 @Service
 public class ReportService {
-    @Autowired
+@Autowired
     PlantedRepository plantedRepository;
-    @Autowired
-    HarvestedRepository harvestedRepository;
-
-    public List<FarmDetailsReportDTO> farmDetailsReport()
+    public List<FarmReportDTO> farmDetailsReport()
     {
-        List<FarmDetailsReportDTO> resultDTO = plantedRepository.reportAllFarm();
-        return resultDTO;
+        List<FarmReportDTO> result = plantedRepository.reportAllFarm();
+        return result;
     }
 
-    public List<CropDetailsReportDTO> reportByCorpType()
+    public List<CorpReportDTO> reportByCorpType()
     {
-        List<CropDetailsReportDTO> resultDTO = plantedRepository.reportByCorpType();
-        return resultDTO;
+        List<CorpReportDTO> result = plantedRepository.reportByCorpType();
+        return result;
     }
 }
